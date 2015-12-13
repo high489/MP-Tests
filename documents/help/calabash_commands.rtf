@@ -1,0 +1,26 @@
+--- TEST START ---
+ APP_BUNDLE_PATH='/Users/admin/Documents/MP-Tests/app/MobilePro-cal.app' DEVICE_TARGET="FEBA4F52-3517-4B08-A63C-30DA5B2B77E4" SCREENSHOT_PATH=/Users/admin/Documents/MP-Tests/report/ cucumber --format html -o myreport.html
+
+--- IOS CONSOLE ---
+*** Returns list of simulator id's
+xcrun simctl list
+
+
+--- CALABASH SETUP ---
+*** Install calabash-cucumber lib
+gem install calabash-cucumber
+
+*** Add -cal app target (run in project Xcode folder)
+calabash-ios setup
+
+*** Build app with -cal target
+???
+
+*** Create calcabash project files and folders ***
+calabash-ios gen
+
+
+--- CUCUMBEER CONSOLE COMMANDS ---
+*** Start app in emulator
+start_test_server_in_background
+
