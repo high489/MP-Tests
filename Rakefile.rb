@@ -1,6 +1,6 @@
 require 'fileutils'
 require 'rubygems'
-require 'xcodeproject'
+require 'xcodeproj'
 
 # TEST_IOS_PROJECT_DIR
 @predefined_ios_project_dir_absolute_path = '/Users/admin/Documents/MP-A3/'
@@ -12,7 +12,7 @@ require 'xcodeproject'
 # TEST_UTILS_APP_FOLDER
 @predefined_ios_build_dir_absolute_path = '/Users/admin/Documents/MP-Tests/apps/'
 
-# TEST_IOS_UDID
+# TEST_IOS_UDID // 
 @predefined_ios_udid = 'FEBA4F52-3517-4B08-A63C-30DA5B2B77E4'
 
 # TEST_UTILS_SCREENSHOT_DIR
@@ -29,20 +29,16 @@ task :create_group_for_xcode_project do
   project_dir = ENV.has_key?('TEST_IOS_PROJECT_DIR') ? ENV['TEST_IOS_PROJECT_DIR'] : @predefined_ios_project_dir_absolute_path
   project_name_with_path = ENV.has_key?('TEST_IOS_PROJECT_NAME') ? ENV['TEST_IOS_PROJECT_NAME'] : @predefined_ios_project_name
   project_name_with_path = project_dir + '/' + project_name_with_path
-  proj = XcodeProject::Project.new(project_name_with_path)
-  data = proj.read
-  data.add_group('Frameworks')
+  proj = Xcodeproj::Project.new(project_name_with_path)
+  proj.new_group('Frameworks', path = nil, source_tree = :group)
+  proj.save(project_name_with_path)
 end
 
 
 desc 'Build a "calabashed" version of the app'
 task :create_cal_target => [:create_group_for_xcode_project] do
   project_dir = ENV.has_key?('TEST_IOS_PROJECT_DIR') ? ENV['TEST_IOS_PROJECT_DIR'] : @predefined_ios_project_dir_absolute_path
-  project_name_with_path = ENV.has_key?('TEST_IOS_PROJECT_NAME') ? ENV['TEST_IOS_PROJECT_NAME'] : @predefined_ios_project_name
-  project_name_with_path = project_dir + '/' + project_name_with_path
-  build_dir = ENV.has_key?('TEST_UTILS_APP_FOLDER') ? ENV['TEST_UTILS_APP_FOLDER'] : @predefined_ios_build_dir_absolute_path
   target_name = ENV.has_key?('TEST_IOS_TARGET_NAME') ? ENV['TEST_IOS_TARGET_NAME'] : @predefined_ios_target_name
-  cal_target_name = target_name + '-cal'
 
 setup_cal_app_target = <<COMMAND
 expect -c 'spawn calabash-ios setup #{project_dir}; expect "Please answer yes (y) or no (n)" {send -- "y\r"}; expect "Default target: #{target_name}. Just hit <Enter> to select default." {send "#{target_name}\r"}; expect "123";'
@@ -50,7 +46,7 @@ COMMAND
 
   sh setup_cal_app_target
 end
-
+  
 
 desc 'Build a "calabashed" version of the app'
 task :build_ios_simulator_app do
@@ -80,8 +76,8 @@ desc 'Run all the calabash/cucumber acceptance tests on the simulator.'
 task :test_on_ios_simulator do
 	# App file with absolute path
   build_dir = ENV.has_key?('TEST_UTILS_APP_FOLDER') ? ENV['TEST_UTILS_APP_FOLDER'] : @predefined_ios_build_dir_absolute_path
-  target_name = ENV.has_key?('TEST_IOS_CAL_TARGET_NAME') ? ENV['TEST_IOS_CAL_TARGET_NAME'] : @predefined_ios_cal_target_name
-  app_name_with_path = build_dir + '/' + target_name + '.app'
+  target_name = ENV.has_key?('TEST_IOS_TARGET_NAME') ? ENV['TEST_IOS_TARGET_NAME'] : @predefined_ios_target_name
+  app_name_with_path = build_dir + '/' + target_name + '-cal.app'
 
   simulator_udid = ENV.has_key?('TEST_IOS_UDID') ? ENV['TEST_IOS_UDID'] : @predefined_ios_udid
 
