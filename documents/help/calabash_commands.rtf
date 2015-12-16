@@ -7,8 +7,13 @@ xcrun simctl list
 
 
 --- CALABASH SETUP ---
-*** Install calabash-cucumber lib
+*** Install gems
+bundler install
 gem install calabash-cucumber
+
+
+
+
 
 *** Add -cal app target (run in project Xcode folder)
 calabash-ios setup
