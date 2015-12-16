@@ -30,7 +30,8 @@ task :create_group_for_xcode_project do
   project_name_with_path = ENV.has_key?('TEST_IOS_PROJECT_NAME') ? ENV['TEST_IOS_PROJECT_NAME'] : @predefined_ios_project_name
   project_name_with_path = project_dir + '/' + project_name_with_path
   proj = Xcodeproj::Project.new(project_name_with_path)
-  proj.new_group('Frameworks', path = nil, source_tree = :group)
+  #proj.new_group('Frameworks', path = nil, source_tree = :group)
+  proj.frameworks_group
   proj.save(project_name_with_path)
 end
 
