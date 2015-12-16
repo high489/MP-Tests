@@ -1,6 +1,6 @@
 require 'fileutils'
 require 'rubygems'
-require 'xcodeproj'
+#require 'xcodeproj'
 
 # TEST_IOS_PROJECT_DIR
 @predefined_ios_project_dir_absolute_path = '/Users/admin/Documents/MP-A3/'
@@ -24,20 +24,20 @@ require 'xcodeproj'
 
 
 
-desc 'Build a "calabashed" version of the app'
-task :create_group_for_xcode_project do
-  project_dir = ENV.has_key?('TEST_IOS_PROJECT_DIR') ? ENV['TEST_IOS_PROJECT_DIR'] : @predefined_ios_project_dir_absolute_path
-  project_name_with_path = ENV.has_key?('TEST_IOS_PROJECT_NAME') ? ENV['TEST_IOS_PROJECT_NAME'] : @predefined_ios_project_name
-  project_name_with_path = project_dir + '/' + project_name_with_path
-  proj = Xcodeproj::Project.new(project_name_with_path)
-  #proj.new_group('Frameworks', path = nil, source_tree = :group)
-  proj.frameworks_group
-  proj.save(project_name_with_path)
-end
+#desc 'Build a "calabashed" version of the app'
+#task :create_group_for_xcode_project do
+#  project_dir = ENV.has_key?('TEST_IOS_PROJECT_DIR') ? ENV['TEST_IOS_PROJECT_DIR'] : @predefined_ios_project_dir_absolute_path
+#  project_name_with_path = ENV.has_key?('TEST_IOS_PROJECT_NAME') ? ENV['TEST_IOS_PROJECT_NAME'] : @predefined_ios_project_name
+#  project_name_with_path = project_dir + '/' + project_name_with_path
+#  proj = Xcodeproj::Project.new(project_name_with_path)
+#  #proj.new_group('Frameworks', path = nil, source_tree = :group)
+#  proj.frameworks_group
+#  proj.save(project_name_with_path)
+#end
 
 
 desc 'Build a "calabashed" version of the app'
-task :create_cal_target => [:create_group_for_xcode_project] do
+task :create_cal_target do
   project_dir = ENV.has_key?('TEST_IOS_PROJECT_DIR') ? ENV['TEST_IOS_PROJECT_DIR'] : @predefined_ios_project_dir_absolute_path
   target_name = ENV.has_key?('TEST_IOS_TARGET_NAME') ? ENV['TEST_IOS_TARGET_NAME'] : @predefined_ios_target_name
 
