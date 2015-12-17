@@ -16,8 +16,10 @@ Cucumber::Rake::Task.new :features do |t|
   Encoding.default_external = Encoding::UTF_8
 
   # Create folders for report and screenshots
-  FileUtils.mkdir_p(configs['report_dir_absolute_path'])
-  FileUtils.mkdir_p(configs['screenshot_dir_absolute_path'])
+  report_dir = ENV.has_key?('TEST_UTILS_REPORT_DIR') ? ENV['TEST_UTILS_REPORT_DIR'] : configs['report_dir_absolute_path']
+  screenshot_dir = ENV.has_key?('TEST_UTILS_SCREENSHOT_DIR') ? ENV['TEST_UTILS_SCREENSHOT_DIR'] : configs['screenshot_dir_absolute_path']
+  FileUtils.mkdir_p(report_dir)
+  FileUtils.mkdir_p(screenshot_dir)
 
     t.cucumber_opts = [
                       "features/",
