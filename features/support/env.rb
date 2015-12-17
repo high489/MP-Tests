@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # Requiring this file will import Calabash and the Calabash predefined Steps.
 require 'calabash-cucumber/cucumber'
 
