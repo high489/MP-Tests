@@ -1,0 +1,18 @@
+### CUCUMBER_OPTS for local run
+report_dir_absolute_path: /Users/admin/Documents/MP-Tests/report/
+screenshot_dir_absolute_path: /Users/admin/Documents/MP-Tests/report/screenshots/
+ios_udid: 404AF286-C8B2-4206-A8CD-9C134036B25F
+
+### GLOBAL VARIABLES
+# ENV: TEST_IOS_PROJECT_DIR
+# USSAGE: path to xcode project
+predefined_ios_project_dir_absolute_path: /Users/admin/Documents/MP-A3/
+# ENV: TEST_IOS_PROJECT_NAME
+# USSAGE: project name
+predefined_ios_project_name: MobilePro.xcodeproj
+# ENV: TEST_IOS_TARGET_NAME
+# USSAGE: '-cal' target will be created from this template target
+predefined_ios_target_name: MobilePro
+# ENV: TEST_UTILS_APP_FOLDER
+# USSAGE: path to test utils
+predefined_ios_build_dir_absolute_path: /Users/admin/Documents/MP-Tests/apps/
