@@ -23,6 +23,10 @@ require 'calabash-cucumber/launcher'
 
 
 Before do |scenario|
+
+  Encoding.default_internal = Encoding::UTF_8
+  Encoding.default_external = Encoding::UTF_8
+
   @calabash_launcher = Calabash::Cucumber::Launcher.new
   unless @calabash_launcher.calabash_no_launch?
     @calabash_launcher.relaunch
@@ -31,6 +35,10 @@ Before do |scenario|
 end
 
 After do |scenario|
+
+  Encoding.default_internal = Encoding::UTF_8
+  Encoding.default_external = Encoding::UTF_8
+
   unless @calabash_launcher.calabash_no_stop?
     calabash_exit
     if @calabash_launcher.active?
@@ -40,6 +48,10 @@ After do |scenario|
 end
 
 at_exit do
+  
+  Encoding.default_internal = Encoding::UTF_8
+  Encoding.default_external = Encoding::UTF_8
+
   launcher = Calabash::Cucumber::Launcher.new
   if launcher.simulator_target?
     launcher.simulator_launcher.stop unless launcher.calabash_no_stop?
