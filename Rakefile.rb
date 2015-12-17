@@ -33,7 +33,7 @@ Cucumber::Rake::Task.new :features do |t|
                       "--format html -o #{report_dir}/tests_result.html",
                       "DEVICE_TARGET='#{udid}' ",
                       "APP_BUNDLE_PATH='#{app_name_with_path}' ",
-                      "SCREENSHOT_PATH='#{cscreenshot_dir}' "
+                      "SCREENSHOT_PATH='#{screenshot_dir}' "
                        ]
     t.fork=true
 end
