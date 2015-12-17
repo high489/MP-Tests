@@ -10,11 +10,16 @@ Cucumber::Rake::Task.new :features do |t|
   settings_file = 'config/cucumber.yml'
   configs = YAML.load_file settings_file
 
-    # App file with absolute path
-  app_name_with_path = configs['predefined_ios_build_dir_absolute_path'] + '/' + configs['predefined_ios_target_name'] + '-cal.app'
-
   Encoding.default_internal = Encoding::UTF_8
   Encoding.default_external = Encoding::UTF_8
+
+  # App file with absolute path
+  ios_target = ENV.has_key?('TEST_IOS_TARGET_NAME') ? ENV['TEST_IOS_TARGET_NAME'] : configs['predefined_ios_target_name']
+  ios_app_dir = ENV.has_key?('predefined_ios_build_dir_absolute_path') ? ENV['predefined_ios_build_dir_absolute_path'] : configs['predefined_ios_build_dir_absolute_path']
+  app_name_with_path = ios_app_dir + '/' + ios_target + '-cal.app'
+
+  # Get UDID
+  udid = ENV.has_key?('TEST_IOS_UDID') ? ENV['TEST_IOS_UDID'] : configs['ios_udid']
 
   # Create folders for report and screenshots
   report_dir = ENV.has_key?('TEST_UTILS_REPORT_DIR') ? ENV['TEST_UTILS_REPORT_DIR'] : configs['report_dir_absolute_path']
@@ -25,10 +30,10 @@ Cucumber::Rake::Task.new :features do |t|
     t.cucumber_opts = [
                       "features/",
                       "--format progress",
-                      "--format html -o #{configs['report_dir_absolute_path']}/tests_result.html",
-                      "DEVICE_TARGET='#{configs['ios_udid']}' ",
+                      "--format html -o #{report_dir}/tests_result.html",
+                      "DEVICE_TARGET='#{udid}' ",
                       "APP_BUNDLE_PATH='#{app_name_with_path}' ",
-                      "SCREENSHOT_PATH='#{configs['screenshot_dir_absolute_path']}' "
+                      "SCREENSHOT_PATH='#{cscreenshot_dir}' "
                        ]
     t.fork=true
 end
