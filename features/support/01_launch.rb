@@ -34,10 +34,17 @@ Before do |scenario|
   end
 end
 
+
+def take_an_error_screen_shot
+  Then take picture
+end
+
 After do |scenario|
 
   Encoding.default_internal = Encoding::UTF_8
   Encoding.default_external = Encoding::UTF_8
+
+  take_an_error_screen_shot if scenario.failed?
 
   unless @calabash_launcher.calabash_no_stop?
     calabash_exit

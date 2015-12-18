@@ -24,6 +24,9 @@ Cucumber::Rake::Task.new :features do |t|
   # Create folders for report and screenshots
   report_dir = ENV.has_key?('TEST_UTILS_REPORT_DIR') ? ENV['TEST_UTILS_REPORT_DIR'] : configs['report_dir_absolute_path']
   screenshot_dir = ENV.has_key?('TEST_UTILS_SCREENSHOT_DIR') ? ENV['TEST_UTILS_SCREENSHOT_DIR'] : configs['screenshot_dir_absolute_path']
+
+  FileUtils.rmtree(screenshot_dir)
+  FileUtils.rmtree(report_dir)
   FileUtils.mkdir_p(report_dir)
   FileUtils.mkdir_p(screenshot_dir)
 
