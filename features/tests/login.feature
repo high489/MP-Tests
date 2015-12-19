@@ -3,7 +3,7 @@ Feature: Check login
 Scenario: Check wrong login
   Given I am on the login screen
   When I try to login as werwerewrwer with password pass
-  Then I see invalid werwerewrwer login message window
+  Then I see invalid 123 login message window
 
 
 
