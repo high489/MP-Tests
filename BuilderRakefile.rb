@@ -52,24 +52,6 @@ COMMAND
 end
 
 
-desc 'Add app path for console run'
-task :add_calabashed_app_location_to_xcode_project do
-  
-  set_config_variables
-
-  # Create features/support/01_lounch.rb file
-  project_features_dir_path = @project_dir + '/features/support/'
-  project_lounch_file = project_features_dir_path + '01_launch.rb'
-  current_app_path = @utils_app_dir + '/' + @cal_target_name + '.app'
-
-  FileUtils.mkdir_p(project_features_dir_path)
-  lounch_file = File.new(project_lounch_file, 'w')
-  lounch_file.puts("APP_BUNDLE_PATH = '#{current_app_path}'")
-  lounch_file.close
-
-end
-
-
 desc 'Run all the calabash/cucumber acceptance tests on the simulator.'
 task :build_app_for_ios_simulator => [:create_cal_target, :build_ios_simulator_app]do
 end
