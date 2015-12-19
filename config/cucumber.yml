@@ -1,10 +1,4 @@
 ### CUCUMBER_OPTS for local run
-# ENV: TEST_UTILS_REPORT_DIR
-# USSAGE: report dir path
-report_dir_absolute_path: /Users/admin/Documents/MP-Tests/report/
-# ENV: TEST_UTILS_SCREENSHOT_DIR
-# USSAGE: screenshots dir path
-screenshot_dir_absolute_path: /Users/admin/Documents/MP-Tests/report/screenshots/
 # ENV: TEST_IOS_UDID
 # USSAGE: iOs device UDID
 ios_udid: 404AF286-C8B2-4206-A8CD-9C134036B25F
