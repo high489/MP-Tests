@@ -11,5 +11,5 @@ Scenario: Check wrong login with numbers
   Given I am on the login screen
   When I try to login as 1 with password 1
   Then I see invalid 1 login message window
-
+  Then take picture
 
