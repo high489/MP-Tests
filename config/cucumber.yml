@@ -15,4 +15,4 @@ predefined_ios_project_name: MobilePro.xcodeproj
 predefined_ios_target_name: MobilePro
 # ENV: TEST_UTILS_APP_FOLDER
 # USSAGE: path to test utils
-predefined_ios_build_dir_absolute_path: /Users/admin/Documents/MP-Tests/apps/
+predefined_ios_app_dir_absolute_path: /Users/admin/Documents/MP-Tests/apps/
