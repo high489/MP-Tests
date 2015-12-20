@@ -11,7 +11,7 @@ Given /^I am on the login screen$/ do
 end
 
 
-When (/^I try to login as (.*) with password (.*)$/) do |arg1, arg2|
+When (/^I try to login as '(.*)' with password '(.*)'$/) do |arg1, arg2|
     wait_for_elements_exist("label text:'Username'", :timeout => 3)
     tap("Username")
     wait_for_keyboard()
@@ -30,9 +30,9 @@ end
 When (/^I try to login as valid user$/) do
     @username = VALID_LOGIN[:username]
     @password = VALID_LOGIN[:password]
-    macro ('I try to login as ' + @username + ' with password ' + @password)
+    macro ("I try to login as '" + @username + "' with password '" + @password + "'")
 end
 
-Then (/^I see invalid ([^\"]*) login message window$/) do |invalidlogin|
-    wait_for_elements_exist("label text:'#{invalidlogin} is invalid'", :timeout => 10)
+Then (/^I see invalid '([^\"]*)' login message window$/) do |invalidlogin|
+    wait_for_elements_exist("label text:'#{invalidlogin} is invalid'", :timeout => 4)
 end
