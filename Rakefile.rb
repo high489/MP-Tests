@@ -21,11 +21,12 @@ Cucumber::Rake::Task.new :run_ios_tests do |t|
   Encoding.default_internal = Encoding::UTF_8
   Encoding.default_external = Encoding::UTF_8
 
+  set_config_variables
   # App file with absolute path
   app_name_with_path = @utils_app_dir + '/' + @app_name
 
-  FileUtils.rmtree(screenshot_dir)
-  FileUtils.mkdir_p(screenshot_dir)
+  FileUtils.rmtree(@screenshot_dir)
+  FileUtils.mkdir_p(@screenshot_dir)
 
     t.cucumber_opts = [
                       "features/",
