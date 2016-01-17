@@ -6,4 +6,8 @@ class MainPage < Calabash::IBase
     "* marked:'Log Off"
   end
 
+  def open_bbs_module
+    touch("* text:'Behavioral Based Safety'")
+  end
+
 end

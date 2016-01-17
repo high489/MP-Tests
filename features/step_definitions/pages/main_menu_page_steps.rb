@@ -1,3 +1,9 @@
+Given /^I am logged in$/ do
+    macro ("I am on the login screen")
+    macro ("I try to login as valid user")
+    macro ("I am on main app page")
+end
+
 Then (/^I am on main app page$/) do
-    wait_for_elements_exist("label text:'Log Off'", :timeout => 4)
+	@main_page = page(BbsListPage).await(timeout: 10)
 end

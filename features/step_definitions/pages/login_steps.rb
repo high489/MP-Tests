@@ -11,11 +11,13 @@ When (/^I try to login as '(.*)' with password '(.*)'$/) do |arg1, arg2|
     @current_page.login(arg1,arg2)
 end
 
+
 When (/^I try to login as valid user$/) do
     @username = VALID_LOGIN[:username]
     @password = VALID_LOGIN[:password]
     macro ("I try to login as '" + @username + "' with password '" + @password + "'")
 end
+
 
 Then (/^I see invalid '([^\"]*)' login message window$/) do |invalidlogin|
     @current_page.wait_for_failed_login(invalidlogin)

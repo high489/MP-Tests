@@ -1,5 +1,6 @@
 Feature: Check login page
 
+	@ios @login
 	Scenario Outline: Check wrong login
 		Given I am on the login screen
 		When I try to login as <Login> with password <Password>
@@ -21,7 +22,7 @@ Feature: Check login page
 		|	'Password2015'		|	'Password2015'		|
 		|	'!@#$%^&*(_)-+=:;'	|	'!@#$%^&*(_)-+=:;'	|
 
-
+	@ios @login
 	Scenario: Check valid login
 		Given I am on the login screen
 		When I try to login as valid user

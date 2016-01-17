@@ -1,0 +1,2 @@
+class NotFoundUiElementException < Exception
+end

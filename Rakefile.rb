@@ -30,6 +30,7 @@ Cucumber::Rake::Task.new :run_ios_tests do |t|
 
     t.cucumber_opts = [
                       "features/",
+                      "--tags @ios",
                       "--format progress",
                       "--format html -o ./report.html",
                       "DEVICE_TARGET='#{@udid}' ",
