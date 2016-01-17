@@ -9,7 +9,7 @@ def set_config_variables
   configs = YAML.load_file settings_file
 
   @udid = ENV.has_key?('TEST_IOS_UDID') ? ENV['TEST_IOS_UDID'] : configs['ios_udid']
-  @utils_app_dir = ENV.has_key?('TEST_UTILS_APP_FOLDER') ? ENV['TEST_UTILS_APP_FOLDER'] : configs['predefined_ios_app_dir_absolute_path']
+  @utils_app_dir = ENV.has_key?('TEST_UTILS_APP_DIR') ? ENV['TEST_UTILS_APP_DIR'] : configs['predefined_ios_app_dir_absolute_path']
   @target_name = ENV.has_key?('TEST_IOS_TARGET_NAME') ? ENV['TEST_IOS_TARGET_NAME'] : configs['predefined_ios_target_name']
   @app_name = @target_name + '-cal.app'
   @screenshot_dir = "./screenshots/"

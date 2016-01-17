@@ -18,6 +18,5 @@ When (/^I try to login as valid user$/) do
 end
 
 Then (/^I see invalid '([^\"]*)' login message window$/) do |invalidlogin|
-    @current_page = page(LoginPage).await(timeout: 30)
     @current_page.wait_for_failed_login(invalidlogin)
 end

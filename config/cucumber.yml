@@ -13,7 +13,7 @@ predefined_ios_project_name: MobilePro.xcodeproj
 # ENV: TEST_IOS_TARGET_NAME
 # USSAGE: '-cal' target will be created from this template target
 predefined_ios_target_name: MobilePro
-# ENV: TEST_UTILS_APP_FOLDER
+# ENV: TEST_UTILS_APP_DIR
 # USSAGE: path to test utils
 predefined_ios_app_dir_absolute_path: /Users/admin/Documents/MP-Tests/apps/
 

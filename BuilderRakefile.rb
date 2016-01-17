@@ -12,7 +12,7 @@ def set_config_variables
   @target_name = ENV.has_key?('TEST_IOS_TARGET_NAME') ? ENV['TEST_IOS_TARGET_NAME'] : configs['predefined_ios_target_name']
   project_name = ENV.has_key?('TEST_IOS_PROJECT_NAME') ? ENV['TEST_IOS_PROJECT_NAME'] : configs['predefined_ios_project_name']
   @project_name_with_path = @project_dir + '/' + project_name
-  @utils_app_dir = ENV.has_key?('TEST_UTILS_APP_FOLDER') ? ENV['TEST_UTILS_APP_FOLDER'] : configs['predefined_ios_app_dir_absolute_path']
+  @utils_app_dir = ENV.has_key?('TEST_UTILS_APP_DIR') ? ENV['TEST_UTILS_APP_DIR'] : configs['predefined_ios_app_dir_absolute_path']
   @cal_target_name = @target_name + '-cal'
 end
 
