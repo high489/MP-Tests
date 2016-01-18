@@ -8,14 +8,14 @@ class LoginPage < Calabash::IBase
 
   def login(user,pass)
     wait_for_elements_exist("label text:'Username'", :timeout => 3)
-    tap("Username")
+    touch("* text:'Username'")
     wait_for_keyboard()
     if element_exists("button isEnabled:1 index:1")
         touch("button isEnabled:1 index:1")
     end
     keyboard_enter_text(user)
     done
-    tap("Password")
+    touch("* text:'Password'")
     wait_for_keyboard()
     keyboard_enter_text(pass)
     done
