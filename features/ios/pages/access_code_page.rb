@@ -3,15 +3,7 @@ require 'calabash-cucumber/ibase'
 class AccessCodePage < Calabash::IBase
 
   def trait
-    "button marked:'1'"
-    "button marked:'2'"
-    "button marked:'3'"
-    "button marked:'4'"
-    "button marked:'5'"
-    "button marked:'6'"
-    "button marked:'7'"
-    "button marked:'8'"
-    "button marked:'9'"
+    "* text:'Access Code'"
   end
 
   def enter_access_code
