@@ -1,7 +1,7 @@
 Given /^I am on the login screen$/ do
   if not element_exists("button label text:'LOG IN'")
     @current_page = page(AccessCodePage).await(timeout: 30)
-    current_page.enter_access_code
+    @current_page.enter_access_code
   end
   @current_page = page(LoginPage).await(timeout: 30)
 end
