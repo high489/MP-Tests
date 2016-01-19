@@ -7,7 +7,7 @@ class LoginPage < Calabash::IBase
   end
 
   def login(user,pass)
-    wait_for_elements_exist("label text:'Username'", :timeout => 3)
+    wait_for_elements_exist("label text:'Username'", :timeout => 5)
     touch("* text:'Username'")
     wait_for_keyboard()
     if element_exists("button isEnabled:1 index:1")
@@ -23,7 +23,7 @@ class LoginPage < Calabash::IBase
   end
 
   def wait_for_failed_login(invalidlogin)
-  	wait_for_elements_exist("label text:'" +invalidlogin+ " is invalid'", :timeout => 4)
+  	wait_for_elements_exist("label text:'" +invalidlogin+ " is invalid'", :timeout => 5)
   end
 
 end

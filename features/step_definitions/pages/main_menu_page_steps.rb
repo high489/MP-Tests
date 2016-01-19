@@ -5,5 +5,5 @@ Given /^I am logged in$/ do
 end
 
 Then (/^I am on main app page$/) do
-	@main_page = page(BbsListPage).await(timeout: 10)
+	@main_page = page(MainPage).await(timeout: 10)
 end

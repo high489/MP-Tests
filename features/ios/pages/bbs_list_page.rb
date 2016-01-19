@@ -3,7 +3,7 @@ require 'calabash-cucumber/ibase'
 class BbsListPage < Calabash::IBase
 
   def trait
-    "* marked:'Log Off"
+    "label {text BEGINSWITH 'BBS ('}"
   end
 
   def create_new_person_observation
