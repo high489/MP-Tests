@@ -1,6 +1,9 @@
 --- TEST START ---
  APP_BUNDLE_PATH='/Users/admin/Documents/MP-Tests/app/MobilePro-cal.app' DEVICE_TARGET="FEBA4F52-3517-4B08-A63C-30DA5B2B77E4" SCREENSHOT_PATH=/Users/admin/Documents/MP-Tests/report/ cucumber --format html -o myreport.html
 
+--- BUILD APP BY RAKEFILE ---
+rake --rakefile BuilderRakefile.rb build_app_for_ios_simulator
+
 --- IOS TERMINAL COMMANDS ---
 *** Returns list of simulator id's
 xcrun simctl list

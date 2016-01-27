@@ -48,16 +48,20 @@ class BbsDetailsPage < Calabash::IBase
   end
 
   def check_if_observer_type_is_enabled
+    @cell_height = get_observer_id_cell_height
+    assert(@cell_height > 0, "Observer ID cell height is 0")
     check_element_exists("UISegment marked:'User'")
     check_element_exists("UISegment marked:'Employee'")
     check_element_exists("label text:'Observer type'")
   end
   
   def check_if_observer_type_is_not_enabled
+    @cell_height = get_observer_id_cell_height
+    assert(@cell_height == 0, "Observer ID cell height is not 0")
     #TODO: elements must not be visible, otherwise need to know hidden view ID
-    check_element_does_not_exist("UISegment marked:'User'")
-    check_element_does_not_exist("UISegment marked:'Employee'")
-    check_element_does_not_exist("label text:'Observer type'")
+#    check_element_does_not_exist("UISegment marked:'User'")
+#    check_element_does_not_exist("UISegment marked:'Employee'")
+#    check_element_does_not_exist("label text:'Observer type'")
   end
 
   def check_if_observer_type_is_user
@@ -73,6 +77,18 @@ class BbsDetailsPage < Calabash::IBase
   def check_observer(observer)
     check_element_exists("label text:'"+observer+"'")
   end
+
+  def get_observer_id_cell_height
+    return get_cell_height("PMFormCellView accessibilityValue:'Observer ID'")
+  end
+  def get_cell_height(cell_query)
+    wait_for_element_exists(cell_query)
+    result_hash_map = query(cell_query)[0]
+    frame_value = result_hash_map['frame']
+    result_height = frame_value['height']
+    return result_height
+  end
+
 
   def clear_observer
   end
