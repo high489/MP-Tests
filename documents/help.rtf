@@ -4,9 +4,13 @@
 --- BUILD APP BY RAKEFILE ---
 rake --rakefile BuilderRakefile.rb build_app_for_ios_simulator
 
---- IOS TERMINAL COMMANDS ---
+--- XCODE TERMINAL COMMANDS ---
 *** Returns list of simulator id's
 xcrun simctl list
+*** Clear simulator data ***
+xcrun simctl erase '404AF286-C8B2-4206-A8CD-9C134036B25F'
+*** Kill iOs simulators ***
+killall Simulator
 
 --- CALABASH SETUP ---
 *** Install gems
