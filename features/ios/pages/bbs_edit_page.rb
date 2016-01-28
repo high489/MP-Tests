@@ -49,7 +49,9 @@ class BbsDetailsPage < Calabash::IBase
 
   def check_if_observer_type_is_enabled
     @cell_height = get_observer_id_cell_height
-    assert(@cell_height > 0, "Observer ID cell height is 0")
+    if @cell_height == 0
+      fail(msg="Observer ID cell height is 0")
+    end 
     check_element_exists("UISegment marked:'User'")
     check_element_exists("UISegment marked:'Employee'")
     check_element_exists("label text:'Observer type'")
@@ -57,7 +59,9 @@ class BbsDetailsPage < Calabash::IBase
   
   def check_if_observer_type_is_not_enabled
     @cell_height = get_observer_id_cell_height
-    assert(@cell_height == 0, "Observer ID cell height is not 0")
+    if @cell_height != 0
+      fail(msg="Observer ID cell height is not 0")
+    end 
     #TODO: elements must not be visible, otherwise need to know hidden view ID
 #    check_element_does_not_exist("UISegment marked:'User'")
 #    check_element_does_not_exist("UISegment marked:'Employee'")
