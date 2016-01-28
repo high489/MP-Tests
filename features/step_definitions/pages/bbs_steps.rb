@@ -5,12 +5,12 @@ When (/^I move to BBS list page$/) do
 end
 
 
-When (/^I crete new person observation$/) do
+When (/^I create new person observation$/) do
     @bbs_list_page.create_new_person_observation
     @bbs_edit_page =  page(BbsDetailsPage).await(timeout: 30)
 end
 
-When (/^I crete new group observation$/) do
+When (/^I create new group observation$/) do
     @bbs_list_page.create_new_group_observation
     @bbs_edit_page =  page(BbsDetailsPage).await(timeout: 30)
 end
