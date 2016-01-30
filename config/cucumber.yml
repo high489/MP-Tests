@@ -6,7 +6,7 @@ ios_udid: 404AF286-C8B2-4206-A8CD-9C134036B25F
 ### GLOBAL VARIABLES
 # ENV: TEST_IOS_PROJECT_DIR
 # USSAGE: path to xcode project
-predefined_ios_project_dir_absolute_path: /Users/admin/Documents/MP-A3/
+predefined_ios_project_dir_absolute_path: /Users/admin/Documents/Playground/
 # ENV: TEST_IOS_PROJECT_NAME
 # USSAGE: project name
 predefined_ios_project_name: MobilePro.xcodeproj
