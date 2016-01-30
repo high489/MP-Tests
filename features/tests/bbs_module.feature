@@ -1,6 +1,6 @@
 Feature: Check BBS module
 
-	@ios @temp @smoke @feature/MPS-4
+	@ios @temp @feature/MPS-4
 	Scenario: Check BBS 'report data by' field
 		Given I am logged in
 		When I move to BBS list page
