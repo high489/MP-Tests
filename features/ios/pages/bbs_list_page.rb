@@ -16,7 +16,7 @@ class BbsListPage < Calabash::IBase
   end
 
   def open_bbs_creation_context
-    touch("label index:9")
+    touch("label index:10")
   end
   def tap_observe_person
     touch("label text:'Observe Person'")
