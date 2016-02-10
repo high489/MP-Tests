@@ -3,7 +3,7 @@ require 'calabash-cucumber/ibase'
 class MainPage < Calabash::IBase
 
   def trait
-    "* marked:'Log Off"
+    "label text:'Calendar'"
   end
 
   def open_bbs_module
