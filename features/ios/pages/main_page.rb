@@ -11,4 +11,12 @@ class MainPage < Calabash::IBase
     touch("* text:'Behavioral Based Safety'")
   end
 
+
+  def open_location_change_page
+    wait_for_elements_exist("label text:'Change Location'", :timeout => 5)
+    touch("label text:'Change Location'")
+  end
+
+
+
 end
