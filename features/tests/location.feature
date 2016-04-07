@@ -1,6 +1,6 @@
 Feature: Checking location selection page
 
-	@temp @ios
+	@ios
 	Scenario: Check filter results while typing
 		Given I am on the login screen
 		When I try to login as valid user

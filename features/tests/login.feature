@@ -22,7 +22,7 @@ Feature: Check login page
 		|	'Password2015'		|	'Password2015'		|
 		|	'!@#$%^&*(_)-+=:;'	|	'!@#$%^&*(_)-+=:;'	|
 
-	@ios @login @smoke
+	@ios @login @smoke @temp
 	Scenario: Check valid login
 		Given I am on the login screen
 		When I try to login as valid user

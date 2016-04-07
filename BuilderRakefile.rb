@@ -17,7 +17,7 @@ def set_config_variables
 end
 
 
-desc 'Create "-cat" target in project'
+desc 'Create "-cal" target in project'
 task :create_cal_target do
   
   set_config_variables

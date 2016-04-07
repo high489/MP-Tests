@@ -1,25 +1,25 @@
-require 'calabash-cucumber/ibase'
+require 'calabash-android/abase'
 
-class LoginPage < Calabash::IBase
+class LoginPage < Calabash::ABase
 
   def trait
-    "button marked:'LOG IN'"
+    "AppCompatButton id:'LoginFragment_Button'"
   end
 
   def login(user,pass)
-    wait_for_elements_exist("label text:'Username'", :timeout => 5)
-    touch("* text:'Username'")
+    wait_for_elements_exist("TextInputLayout id:'LoginFragment_UsernameLayout'", :timeout => 5)
+    touch("TextInputLayout id:'LoginFragment_UsernameLayout'")
     wait_for_keyboard()
-    if element_exists("button isEnabled:1 index:1")
-        touch("button isEnabled:1 index:1")
-    end
+#    if element_exists("button isEnabled:1 index:1")
+#        touch("button isEnabled:1 index:1")
+#    end
     keyboard_enter_text(user)
-    done
-    touch("* text:'Password'")
+    hide_soft_keyboard()
+    touch("TextInputLayout id:'LoginFragment_PasswordLayout'")
     wait_for_keyboard()
     keyboard_enter_text(pass)
-    done
-    touch("button marked:'LOG IN'")
+    hide_soft_keyboard()
+    touch("AppCompatButton id:'LoginFragment_Button'")
   end
 
   def wait_for_failed_login(invalidlogin)

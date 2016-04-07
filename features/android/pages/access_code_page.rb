@@ -1,19 +1,19 @@
-require 'calabash-cucumber/ibase'
+require 'calabash-android/abase'
 
-class AccessCodePage < Calabash::IBase
+class AccessCodePage < Calabash::ABase
 
   def trait
     "* text:'Access Code'"
   end
 
   def enter_access_code
-    touch("button marked:'4'")
-    touch("button marked:'1'")
-    touch("button marked:'6'")
-    touch("button marked:'6'")
-    touch("button marked:'3'")
-    touch("button marked:'9'")
-    touch("button index:11")
+    touch("AppCompatButton id:'num_2'")
+    touch("AppCompatButton id:'num_6'")
+    touch("AppCompatButton id:'num_3'")
+    touch("AppCompatButton id:'num_4'")
+    touch("AppCompatButton id:'num_4'")
+    touch("AppCompatButton id:'num_7'")
+    touch("AppCompatButton id:'button_ok'")
   end
 
 end

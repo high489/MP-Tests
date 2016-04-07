@@ -17,6 +17,10 @@ predefined_ios_target_name: MobilePro
 # USSAGE: path to test utils
 predefined_ios_app_dir_absolute_path: /Users/admin/Documents/MP-Tests/apps/
 
+
+android: PLATFORM=android -r features/support -r features/android -r features/step_definitions -r features/android/pages
+ios: PLATFORM=ios APP_BUNDLE_PATH=prebuilt/WordPress-cal.app  -r features/support -r features/ios/support -r features/ios/helpers -r features/step_definitions -r features/ios/pages
+
 ###iOS devices UDID:
 #env.IPHONE_4S_UDID=C61638F3-1473-470A-A1FD-50AA0C8BB215
 #env.IPHONE_5_UDID=6B782037-83F2-4F89-8BF3-6D3243632050

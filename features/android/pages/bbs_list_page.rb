@@ -1,6 +1,6 @@
-require 'calabash-cucumber/ibase'
+require 'calabash-android/abase'
 
-class BbsListPage < Calabash::IBase
+class BbsListPage < Calabash::ABase
 
   def trait
     "label {text BEGINSWITH 'BBS ('}"

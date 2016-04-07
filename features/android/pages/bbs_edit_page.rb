@@ -1,6 +1,6 @@
-require 'calabash-cucumber/ibase'
+require 'calabash-android/abase'
 
-class BbsDetailsPage < Calabash::IBase
+class BbsDetailsPage < Calabash::ABase
 
   def trait
     "* marked:'Observation Details"

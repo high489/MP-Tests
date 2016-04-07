@@ -14,7 +14,9 @@ WRONG_LOGINS = [
 
 
 VALID_LOGIN = {
-    username: 'Mohbull',
-    password: 'Password2015',
-    displayname: 'Moh Bull'
+#    username: 'Mohbull',
+#   password: 'Password2015',
+#   displayname: 'Moh Bull'
+    username: 'demouser',
+    password: 'Passw1rd',
 }

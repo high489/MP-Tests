@@ -1,6 +1,6 @@
-require 'calabash-cucumber/ibase'
+require 'calabash-android/abase'
 
-class LocationChangePage < Calabash::IBase
+class LocationChangePage < Calabash::ABase
 
   def trait
     "label {text BEGINSWITH 'Locations ('}"
