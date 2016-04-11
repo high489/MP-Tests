@@ -1,8 +1,10 @@
 # encoding: UTF-8
 # Requiring this file will import Calabash and the Calabash predefined Steps.
 
-  require 'calabash-android/cucumber'
-  require 'calabash-android/operations'
+  require 'calabash-cucumber/cucumber'
+
+ # require 'calabash-android/cucumber'
+ # require 'calabash-android/operations'
 
 
 # require 'calabash-android/abase'
