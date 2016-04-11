@@ -23,6 +23,9 @@ def set_android_config_variables
   @android_app_path = ENV.has_key?('TEST_UTILS_APK_DIR') ? ENV['TEST_UTILS_APK_DIR'] : configs['predefined_android_apk_dir_absolute_path']
   @android_app_name = ENV.has_key?('TEST_UTILS_APK_FILE_NAME') ? ENV['TEST_UTILS_APK_FILE_NAME'] : configs['predefined_android_apk_file_name']
 
+  @android_app_path = @android_app_path.gsub('\\', '/')
+  @android_app_path = @android_app_path.gsub('//', '/')
+
   @screenshot_dir = "./screenshots/"
 end
 
@@ -62,8 +65,8 @@ Cucumber::Rake::Task.new :run_android_tests do |t|
 
   set_android_config_variables
 
-  Dir.glob(@android_app_path + "/test_servers/*") do |my_text_file|
-    @android_calabash_app_name_with_path = @android_app_path + my_text_file
+  Dir.glob(@android_app_path + "/test_servers/*") do |apk_name|
+    @android_calabash_app_name_with_path = apk_name
   end
 
   @android_app_name_with_path = @android_app_path + @android_app_name

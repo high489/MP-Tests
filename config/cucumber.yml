@@ -25,7 +25,7 @@ predefined_ios_app_dir_absolute_path: /Users/admin/Documents/MP-Tests/apps/
 ################################################ ANDROID ################################################
 # ENV: TEST_UTILS_APK_DIR
 # USSAGE: path to folder with application file
-predefined_android_apk_dir_absolute_path: C:\Work\Git\MobilePro-Android\app\build\outputs\apk\
+predefined_android_apk_dir_absolute_path: C:\Work\Git\MP-Tests\apps\
 
 # ENV: TEST_UTILS_APK_FILE_NAME
 # USSAGE: Apk file name
