@@ -1,5 +1,3 @@
-require 'calabash-cucumber/ibase'
-
 class AccessCodePage < Calabash::IBase
 
   def trait

@@ -1,3 +1,4 @@
+------------------------ IOS ------------------------
 --- TEST START ---
  APP_BUNDLE_PATH='/Users/admin/Documents/MP-Tests/app/MobilePro-cal.app' DEVICE_TARGET="30A0252C-47E0-4163-8A9B-66C053F8C73E" SCREENSHOT_PATH=/Users/admin/Documents/MP-Tests/report/ cucumber --format html -o myreport.html
 rake run_ios_tests
@@ -32,11 +33,19 @@ APP='/Users/admin/Documents/MP-Tests/apps/MobilePro-cal.app' DEVICE_TARGET="404A
 *** Start app in emulator
 start_test_server_in_background
 
+------------------------ ANDROID ------------------------
+*** Run emulator ***
+emulator -avd AVD_for_Nexus_4_by_Google -wipe-data -dpi-device 96 -scale 0.77
+
+*** Run tests ***
+calabash-android run "C:\Work\Git\MobilePro-Android\app\build\outputs\apk\app-qa-debug.apk" ADB_DEVICE_ARG=emulator-5554 PLATFORM=android -r features/support -r features/android -r features/step_definitions -r features/android/pages --tags @temp
+
+*** Run console ***
+calabash-android console "C:\Work\Git\MobilePro-Android\app\build\outputs\apk\app-qa-debug.apk" ADB_DEVICE_ARG=emulator-5554 PLATFORM=android -r features/support -r features/android -r features/step_definitions -r features/android/pages --tags @temp
 
 
+------------------------ APPLICATION ------------------------
 
 Access code 416639
 Username Mohbull
 Password Password2015
-
-123

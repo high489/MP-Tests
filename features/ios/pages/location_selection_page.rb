@@ -1,5 +1,3 @@
-require 'calabash-cucumber/ibase'
-
 class LocationChangePage < Calabash::IBase
 
   def trait

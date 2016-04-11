@@ -12,7 +12,6 @@
 #   etc.                               #
 #                                      #
 ########################################
-require 'calabash-cucumber/launcher'
 
 
 # APP_BUNDLE_PATH = "#{ENV['HOME']}/Library/Developer/Xcode/DerivedData/??/Build/Products/Calabash-iphonesimulator/??.app"

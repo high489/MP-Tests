@@ -1,5 +1,3 @@
-require 'calabash-android/abase'
-
 class MainPage < Calabash::ABase
 
   def trait

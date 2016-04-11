@@ -1,6 +1,3 @@
-require 'calabash-android/operations' 
- 
-
 INSTALLATION_STATE = { 
     :installed => false 
 } 

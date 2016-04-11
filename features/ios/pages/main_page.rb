@@ -1,5 +1,3 @@
-require 'calabash-cucumber/ibase'
-
 class MainPage < Calabash::IBase
 
   def trait

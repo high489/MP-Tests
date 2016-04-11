@@ -4,7 +4,7 @@ require 'cucumber'
 require 'rubygems'
 
 
-def set_config_variables
+def set_ios_config_variables
   settings_file = 'config/cucumber.yml'
   configs = YAML.load_file settings_file
 
@@ -16,12 +16,23 @@ def set_config_variables
 end
 
 
+def set_android_config_variables
+  settings_file = 'config/cucumber.yml'
+  configs = YAML.load_file settings_file
+
+  @android_app_path = ENV.has_key?('TEST_UTILS_APK_DIR') ? ENV['TEST_UTILS_APK_DIR'] : configs['predefined_android_apk_dir_absolute_path']
+  @android_app_name = ENV.has_key?('TEST_UTILS_APK_FILE_NAME') ? ENV['TEST_UTILS_APK_FILE_NAME'] : configs['predefined_android_apk_file_name']
+
+  @screenshot_dir = "./screenshots/"
+end
+
+
 #Run ios tests
 Cucumber::Rake::Task.new :run_ios_tests do |t|
   Encoding.default_internal = Encoding::UTF_8
   Encoding.default_external = Encoding::UTF_8
 
-  set_config_variables
+  set_ios_config_variables
   # App file with absolute path
   app_name_with_path = @utils_app_dir + '/' + @app_name
 
@@ -35,16 +46,28 @@ Cucumber::Rake::Task.new :run_ios_tests do |t|
                       "--format html -o ./report.html",
                       "DEVICE_TARGET='#{@udid}' ",
                       "APP_BUNDLE_PATH='#{app_name_with_path}' ",
+                      "-r features/support", 
+                      "-r features/ios", 
+                      "-r features/step_definitions",
                       "SCREENSHOT_PATH='#{@screenshot_dir}' "
                        ]
     t.fork=true
 end
+
 
 #Run android tests
 Cucumber::Rake::Task.new :run_android_tests do |t|
   Encoding.default_internal = Encoding::UTF_8
   Encoding.default_external = Encoding::UTF_8
 
+  set_android_config_variables
+
+  Dir.glob(@android_app_path + "/test_servers/*") do |my_text_file|
+    @android_calabash_app_name_with_path = @android_app_path + my_text_file
+  end
+
+  @android_app_name_with_path = @android_app_path + @android_app_name
+  #/test_servers
   FileUtils.rmtree(@screenshot_dir)
   FileUtils.mkdir_p(@screenshot_dir)
 
@@ -53,14 +76,12 @@ Cucumber::Rake::Task.new :run_android_tests do |t|
                       "--tags @temp",
                       "--format progress",
                       "--format html -o ./report.html",
-                      "TEST_APP_PATH='C:/Work/Git/MP-Tests/test_servers/de00b14719c0da34abefacdc31491b04_0.7.2.apk'", 
-                      "APP_PATH='C:/Work/Git/MobilePro-Android/app/build/outputs/apk/app-dev-debug.apk'",
+                      "TEST_APP_PATH='#{@android_calabash_app_name_with_path}'", 
+                      "APP_PATH='#{@android_app_name_with_path}'",
                       "ADB_DEVICE_ARG=emulator-5554", 
-                      "PLATFORM=android", 
                       "-r features/support", 
                       "-r features/android", 
                       "-r features/step_definitions", 
-                      "-r features/android/pages",
                       "SCREENSHOT_PATH='#{@screenshot_dir}' "
                        ]
     t.fork=true

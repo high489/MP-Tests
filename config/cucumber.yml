@@ -1,3 +1,4 @@
+################################################ IOS ################################################
 ### CUCUMBER_OPTS for local run
 # ENV: TEST_IOS_UDID
 # USSAGE: iOs device UDID
@@ -14,12 +15,22 @@ predefined_ios_project_name: MobilePro.xcodeproj
 # USSAGE: '-cal' target will be created from this template target
 predefined_ios_target_name: MobilePro
 # ENV: TEST_UTILS_APP_DIR
-# USSAGE: path to test utils
+# USSAGE: path to folder with application file
 predefined_ios_app_dir_absolute_path: /Users/admin/Documents/MP-Tests/apps/
 
 
-android: PLATFORM=android -r features/support -r features/android -r features/step_definitions -r features/android/pages
-ios: PLATFORM=ios APP_BUNDLE_PATH=prebuilt/WordPress-cal.app  -r features/support -r features/ios/support -r features/ios/helpers -r features/step_definitions -r features/ios/pages
+#android: PLATFORM=android -r features/support -r features/android -r features/step_definitions -r features/android/pages
+#ios: PLATFORM=ios APP_BUNDLE_PATH=prebuilt/WordPress-cal.app  -r features/support -r features/ios/support -r features/ios/helpers -r features/step_definitions -r features/ios/pages
+
+################################################ ANDROID ################################################
+# ENV: TEST_UTILS_APK_DIR
+# USSAGE: path to folder with application file
+predefined_android_apk_dir_absolute_path: C:\Work\Git\MobilePro-Android\app\build\outputs\apk\
+
+# ENV: TEST_UTILS_APK_FILE_NAME
+# USSAGE: Apk file name
+predefined_android_apk_file_name: app-qa-debug.apk
+
 
 ###iOS devices UDID:
 #env.IPHONE_4S_UDID=C61638F3-1473-470A-A1FD-50AA0C8BB215

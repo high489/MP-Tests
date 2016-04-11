@@ -1,5 +1,3 @@
-require 'calabash-cucumber/ibase'
-
 class BbsDetailsPage < Calabash::IBase
 
   def trait

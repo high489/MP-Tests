@@ -1,5 +1,3 @@
-require 'calabash-cucumber/ibase'
-
 class LoginPage < Calabash::IBase
 
   def trait

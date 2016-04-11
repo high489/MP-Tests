@@ -1,5 +1,3 @@
-require 'calabash-android/abase'
-
 class LoginPage < Calabash::ABase
 
   def trait

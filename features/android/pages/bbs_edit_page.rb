@@ -1,5 +1,3 @@
-require 'calabash-android/abase'
-
 class BbsDetailsPage < Calabash::ABase
 
   def trait

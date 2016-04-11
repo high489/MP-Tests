@@ -1,5 +1,3 @@
-require 'calabash-android/abase'
-
 class LocationChangePage < Calabash::ABase
 
   def trait

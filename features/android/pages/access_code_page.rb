@@ -1,5 +1,3 @@
-require 'calabash-android/abase'
-
 class AccessCodePage < Calabash::ABase
 
   def trait
